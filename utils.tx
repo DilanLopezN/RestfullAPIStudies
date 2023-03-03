@@ -1,4 +1,5 @@
 padronização de dados:
 
+id = uuid
 name,
 description,
