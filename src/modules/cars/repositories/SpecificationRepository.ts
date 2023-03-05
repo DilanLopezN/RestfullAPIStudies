@@ -22,7 +22,10 @@ class SpecificationRepository implements ISpecificationRepository {
   }
 
   findByname(name: string): Specification {
-    throw new Error('Method not implemented.')
+    const specification = this.specifications.find(
+      specification => specification.name === name
+    )
+    return specification
   }
 }
 
