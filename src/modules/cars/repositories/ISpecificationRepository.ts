@@ -6,4 +6,4 @@ interface ISpecificationRepository {
   create({ name, description }: ICreateSpecificationDTO): void
 }
 
-export { ISpecificationRepository }
+export { ISpecificationRepository, ICreateSpecificationDTO }
