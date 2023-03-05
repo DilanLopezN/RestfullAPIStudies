@@ -9,6 +9,7 @@ class SpecificationRepository implements ISpecificationRepository {
   constructor() {
     this.specifications = []
   }
+
   create({ name, description }: ICreateSpecificationDTO): void {
     const specification = new Specification()
     Object.assign(specification, {
@@ -18,6 +19,10 @@ class SpecificationRepository implements ISpecificationRepository {
     })
 
     this.specifications.push(specification)
+  }
+
+  findByname(name: string): Specification {
+    throw new Error('Method not implemented.')
   }
 }
 
