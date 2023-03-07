@@ -17,7 +17,7 @@ categoriesRoutes.get('/categories', (req: Request, res: Response) => {
 })
 
 categoriesRoutes.post(
-  '/import',
+  '/categories/import',
   upload.single('file'),
   (req: Request, res: Response) => {
     const { file } = req
