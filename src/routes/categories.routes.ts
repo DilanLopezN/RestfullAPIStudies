@@ -1,6 +1,7 @@
 import { Router, Request, Response } from 'express'
 import multer from 'multer'
 import { createCategoryController } from '../modules/cars/useCases/createCategory'
+import { importCategoryController } from '../modules/cars/useCases/importCategory'
 import { listCategoriesController } from '../modules/cars/useCases/listCategory'
 
 const categoriesRoutes = Router()
@@ -20,9 +21,7 @@ categoriesRoutes.post(
   '/categories/import',
   upload.single('file'),
   (req: Request, res: Response) => {
-    const { file } = req
-    console.log(file)
-    return res.send()
+    return importCategoryController.handle(req, res)
   }
 )
 export { categoriesRoutes }
