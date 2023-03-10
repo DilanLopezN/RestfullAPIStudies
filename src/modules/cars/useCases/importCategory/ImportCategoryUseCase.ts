@@ -10,7 +10,7 @@ interface IImportCategory {
 class ImportCategoryUseCase {
   constructor(private categoriesRepository: ICategoriesRepository) {}
 
-  loadCategoires(file: Express.Multer.File) {
+  loadCategoires(file: Express.Multer.File): Promise<IImportCategory[]> {
     return new Promise((resolve, reject) => {
       const stream = fs.createReadStream(file.path)
 
@@ -31,11 +31,14 @@ class ImportCategoryUseCase {
         .on('end', () => {
           resolve(categories)
         })
+        .on('error', error => {
+          reject(error)
+        })
     })
   }
 
-  execute(file: Express.Multer.File): void {
-    const categories = this.loadCategoires(file)
+  async execute(file: Express.Multer.File): Promise<void> {
+    const categories = await this.loadCategoires(file)
     console.log(categories)
   }
 }
