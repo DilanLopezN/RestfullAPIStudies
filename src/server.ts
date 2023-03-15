@@ -1,6 +1,6 @@
 import express from 'express'
 import { router } from './routes'
-
+import "./database"
 import swaggerUI from 'swagger-ui-express'
 import swaggerJson from './swagger.json'
 
